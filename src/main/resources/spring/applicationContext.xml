@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+       <!-- 全包扫描 -->
+       <context:component-scan base-package="com.yftech.galileo"/>
+
+       <!-- 引入jdbc配置文件 -->
+       <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+              <property name="locations">
+                     <list>
+                            <value>classpath:properties/*.properties</value>
+                            <!--要是有多个配置文件，只需在这里继续添加即可 -->
+                     </list>
+              </property>
+       </bean>
+
+
+       <!-- 配置数据源 -->
+       <bean id="dataSource"
+             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+              <!-- 不使用properties来配置 -->
+              <!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+                  <property name="url" value="jdbc:mysql://localhost:3306/learning" />
+                  <property name="username" value="root" />
+                  <property name="password" value="christmas258@" /> -->
+              <!-- 使用properties来配置 -->
+              <property name="driverClassName">
+                     <value>${jdbc.driverClass}</value>
+              </property>
+              <property name="url">
+                     <value>${jdbc.jdbcUrl}</value>
+              </property>
+              <property name="username">
+                     <value>${jdbc.user}</value>
+              </property>
+              <property name="password">
+                     <value>${jdbc.password}</value>
+              </property>
+       </bean>
+
+       <!-- sqlsession -->
+       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+              <property name="configLocation" value="classpath:/mybatis/mybatis_config.xml"/>
+              <property name="mapperLocations" value="classpath:/mybatis/mapper/*.xml"/>
+              <property name="dataSource" ref="dataSource"/>
+       </bean>
+
+       <!-- 扫描mybatis接口代理开发:自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+              <property name="basePackage"
+                        value="com.yftech.galileo.dao" />
+       </bean>
+
+       <!-- 事物管理器 -->
+       <bean id="transactionManager"
+             class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+              <property name="dataSource" ref="dataSource"/>
+       </bean>
+
+
+</beans>

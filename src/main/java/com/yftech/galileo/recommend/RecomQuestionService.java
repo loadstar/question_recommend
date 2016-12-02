@@ -8,9 +8,6 @@ import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TThreadPoolServer;
 import org.apache.thrift.transport.TServerSocket;
 
-import java.io.InputStream;
-import java.util.Properties;
-
 /**
  * Created with IntelliJ IDEA.
  * Author:Andrew
@@ -19,7 +16,7 @@ import java.util.Properties;
  */
 public class RecomQuestionService {
     public static final int SERVER_PORT = 9966;
-    private static String THRIFT_PROPERTIES = "thrift_rpc.properties";
+    private static String THRIFT_PROPERTIES = "properties/thrift_rpc.properties";
 
     //private static final Log LOG = LogFactory.getLog(RecomQuestionService.class);
     private static Logger logger = Logger.getLogger(RecomQuestionService.class.getName());
