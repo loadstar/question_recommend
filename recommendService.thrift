@@ -24,7 +24,7 @@ struct recomRequest {
   7:optional int chapter_id
 }
 
-struct recomResponse {list
+struct recomResponse {
   1:required int questionNum,
   2:optional list<question> questions
 }

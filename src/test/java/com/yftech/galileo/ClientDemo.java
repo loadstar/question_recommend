@@ -19,7 +19,8 @@ import org.apache.thrift.transport.TTransportException;
  */
 public class ClientDemo {
 
-    public static final String SERVER_IP = "123.56.116.4"; //"localhost";
+    // public static final String SERVER_IP = "123.56.116.4"; //"localhost";
+    public static final String SERVER_IP = "localhost";
     public static final int SERVER_PORT = 9966;
     public static final int TIMEOUT = 30000;
 
