@@ -14,6 +14,9 @@
         <setting name="defaultStatementTimeout" value="600"/>
     </settings>
 
-    <!--映射文件-->
-
+    <!--映射文件
+    <mappers>
+        <mapper resource="com/yftech/galileo/mapper/SchoolMapper.xml"/>
+    </mappers>
+-->
 </configuration>

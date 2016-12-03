@@ -44,18 +44,16 @@
 
        <!-- sqlsession -->
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-              <property name="configLocation" value="classpath:/mybatis/mybatis_config.xml"/>
-              <property name="mapperLocations" value="classpath:/mybatis/mapper/*.xml"/>
-              <property name="dataSource" ref="dataSource"/>
+              <property name="configLocation" value="classpath:mybatis/mybatis_config.xml"/>
+           <property name="mapperLocations" value="classpath*:com/yftech/galileo/mapper/**/*.xml" />
+           <property name="dataSource" ref="dataSource"/>
        </bean>
 
        <!-- 扫描mybatis接口代理开发:自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-              <property name="basePackage"
-                        value="com.yftech.galileo.dao" />
+              <property name="basePackage" value="com.yftech.galileo.dao" />
        </bean>
-
-       <!-- 事物管理器 -->
+    <!-- 事物管理器 -->
        <bean id="transactionManager"
              class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
               <property name="dataSource" ref="dataSource"/>
