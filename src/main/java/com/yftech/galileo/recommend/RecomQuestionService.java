@@ -2,6 +2,7 @@ package com.yftech.galileo.recommend;
 
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.server.TServer;
@@ -18,6 +19,7 @@ public class RecomQuestionService {
     public static final int SERVER_PORT = 9966;
     private static String THRIFT_PROPERTIES = "properties/thrift_rpc.properties";
 
+    //PropertyConfigurator.configure("properties/log4j.properties");
     //private static final Log LOG = LogFactory.getLog(RecomQuestionService.class);
     private static Logger logger = Logger.getLogger(RecomQuestionService.class.getName());
 
