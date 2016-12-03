@@ -1,4 +1,4 @@
-package com.yftech.galileo.service.com.yftech.galileo.service.impl;
+package com.yftech.galileo.service.impl;
 
 import com.yftech.galileo.dao.SchoolMapper;
 import com.yftech.galileo.model.School;
