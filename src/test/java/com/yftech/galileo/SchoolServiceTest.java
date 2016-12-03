@@ -27,11 +27,12 @@ public class SchoolServiceTest extends SpringTestCase {
         logger.debug("school select result:"+school);
     }
 
-    @Test
-    public void selectSchools()
-    {
-        List<School> schoolList = schoolService.getSchools();
-        logger.debug("school select result:"+schoolList);
-    }
+
+//    @Test
+//    public void selectSchools()
+//    {
+//        List<School> schoolList = schoolService.getSchools();
+//        logger.debug("school select result:"+schoolList);
+//    }
 
 }

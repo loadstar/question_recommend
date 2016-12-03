@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 
-@Service("SchoolService")
+@Service
 public class SchoolServiceImpl implements SchoolService {
     @Autowired
     private SchoolMapper schoolMapper;
@@ -25,8 +25,9 @@ public class SchoolServiceImpl implements SchoolService {
         return schoolMapper.selectByPrimaryKey(id);
     }
 
-    public List<School> getSchools(){
-        return schoolMapper.selectAll();
-    }
+
+//    public List<School> getSchools(){
+//        return schoolMapper.selectAll();
+//    }
 
 }

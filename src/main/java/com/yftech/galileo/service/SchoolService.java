@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface SchoolService {
     School getSchoolById(int id);
-    List<School> getSchools();
+//    List<School> getSchools();
 }
